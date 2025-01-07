@@ -14,6 +14,15 @@
 		354A4EDB2D009045007831A8 /* UnsplashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354A4EDA2D009045007831A8 /* UnsplashTests.swift */; };
 		354A4EE52D009045007831A8 /* UnsplashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354A4EE42D009045007831A8 /* UnsplashUITests.swift */; };
 		354A4EE72D009045007831A8 /* UnsplashUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354A4EE62D009045007831A8 /* UnsplashUITestsLaunchTests.swift */; };
+		3576DDC32D2D3C2200BC49F2 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576DDC22D2D3C2200BC49F2 /* Movie.swift */; };
+		3576DDC52D2D40C700BC49F2 /* environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3576DDC42D2D40C700BC49F2 /* environment.plist */; };
+		3576DDC72D2D521100BC49F2 /* PListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576DDC62D2D521100BC49F2 /* PListManager.swift */; };
+		3576DDCB2D2D676500BC49F2 /* UnsplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576DDCA2D2D676500BC49F2 /* UnsplashAPI.swift */; };
+		3576DDCD2D2D69E000BC49F2 /* FeedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576DDCC2D2D69E000BC49F2 /* FeedState.swift */; };
+		3576DDCF2D2D753E00BC49F2 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576DDCE2D2D753E00BC49F2 /* Topic.swift */; };
+		3576DDD12D2D757000BC49F2 /* TopicState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576DDD02D2D757000BC49F2 /* TopicState.swift */; };
+		3576DDD32D2D75C200BC49F2 /* TopicFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576DDD22D2D75C200BC49F2 /* TopicFeedView.swift */; };
+		3576DDD52D2D7E5A00BC49F2 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576DDD42D2D7E5A00BC49F2 /* ImageDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +54,16 @@
 		354A4EE02D009045007831A8 /* UnsplashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnsplashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		354A4EE42D009045007831A8 /* UnsplashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashUITests.swift; sourceTree = "<group>"; };
 		354A4EE62D009045007831A8 /* UnsplashUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3576DDC12D2D12BB00BC49F2 /* Answers.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Answers.md; sourceTree = "<group>"; };
+		3576DDC22D2D3C2200BC49F2 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		3576DDC42D2D40C700BC49F2 /* environment.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = environment.plist; sourceTree = "<group>"; };
+		3576DDC62D2D521100BC49F2 /* PListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PListManager.swift; sourceTree = "<group>"; };
+		3576DDCA2D2D676500BC49F2 /* UnsplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPI.swift; sourceTree = "<group>"; };
+		3576DDCC2D2D69E000BC49F2 /* FeedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedState.swift; sourceTree = "<group>"; };
+		3576DDCE2D2D753E00BC49F2 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		3576DDD02D2D757000BC49F2 /* TopicState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicState.swift; sourceTree = "<group>"; };
+		3576DDD22D2D75C200BC49F2 /* TopicFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicFeedView.swift; sourceTree = "<group>"; };
+		3576DDD42D2D7E5A00BC49F2 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +94,8 @@
 		354A4EBC2D009043007831A8 = {
 			isa = PBXGroup;
 			children = (
+				3576DDC42D2D40C700BC49F2 /* environment.plist */,
+				3576DDC12D2D12BB00BC49F2 /* Answers.md */,
 				354A4EC72D009043007831A8 /* Unsplash */,
 				354A4ED92D009045007831A8 /* UnsplashTests */,
 				354A4EE32D009045007831A8 /* UnsplashUITests */,
@@ -95,8 +116,16 @@
 		354A4EC72D009043007831A8 /* Unsplash */ = {
 			isa = PBXGroup;
 			children = (
+				3576DDC62D2D521100BC49F2 /* PListManager.swift */,
+				3576DDCC2D2D69E000BC49F2 /* FeedState.swift */,
+				3576DDC22D2D3C2200BC49F2 /* Movie.swift */,
 				354A4EC82D009043007831A8 /* UnsplashApp.swift */,
 				354A4ECA2D009043007831A8 /* ContentView.swift */,
+				3576DDCA2D2D676500BC49F2 /* UnsplashAPI.swift */,
+				3576DDCE2D2D753E00BC49F2 /* Topic.swift */,
+				3576DDD22D2D75C200BC49F2 /* TopicFeedView.swift */,
+				3576DDD02D2D757000BC49F2 /* TopicState.swift */,
+				3576DDD42D2D7E5A00BC49F2 /* ImageDetailView.swift */,
 				354A4ECC2D009045007831A8 /* Assets.xcassets */,
 				354A4ECE2D009045007831A8 /* Unsplash.entitlements */,
 				354A4ECF2D009045007831A8 /* Preview Content */,
@@ -235,6 +264,7 @@
 			files = (
 				354A4ED12D009045007831A8 /* Preview Assets.xcassets in Resources */,
 				354A4ECD2D009045007831A8 /* Assets.xcassets in Resources */,
+				3576DDC52D2D40C700BC49F2 /* environment.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +289,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3576DDC72D2D521100BC49F2 /* PListManager.swift in Sources */,
+				3576DDCB2D2D676500BC49F2 /* UnsplashAPI.swift in Sources */,
 				354A4ECB2D009043007831A8 /* ContentView.swift in Sources */,
+				3576DDD12D2D757000BC49F2 /* TopicState.swift in Sources */,
+				3576DDCD2D2D69E000BC49F2 /* FeedState.swift in Sources */,
 				354A4EC92D009043007831A8 /* UnsplashApp.swift in Sources */,
+				3576DDD32D2D75C200BC49F2 /* TopicFeedView.swift in Sources */,
+				3576DDC32D2D3C2200BC49F2 /* Movie.swift in Sources */,
+				3576DDCF2D2D753E00BC49F2 /* Topic.swift in Sources */,
+				3576DDD52D2D7E5A00BC49F2 /* ImageDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

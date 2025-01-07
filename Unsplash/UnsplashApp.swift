@@ -15,3 +15,23 @@ struct UnsplashApp: App {
         }
     }
 }
+
+struct UnsplashPhoto: Identifiable, Decodable {
+    let id: String
+    let urls: URLS
+    let user: User
+
+    struct URLS: Decodable {
+        let small: String
+        let full: String
+    }
+
+    struct User: Decodable {
+        let name: String
+    }
+}
+
+struct PhotoURLs: Codable {
+    let small: String
+    let full: String
+}

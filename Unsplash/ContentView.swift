@@ -8,16 +8,126 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var feedState = FeedState()
+    @StateObject private var topicsState = TopicsState()
+
+    let columns = [
+        GridItem(.flexible(minimum: 150), spacing: 8),
+        GridItem(.flexible(minimum: 150), spacing: 8)
+    ]
+
+    let placeholderItems = Array(0..<12)
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                // Section des topics
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 16) {
+                        ForEach(topicsState.topics) { topic in
+                            NavigationLink(destination: TopicFeedView(topic: topic)) {
+                                VStack(spacing: 8) {
+                                    AsyncImage(url: URL(string: topic.coverPhotoUrl ?? "")) { phase in
+                                        switch phase {
+                                        case .empty:
+                                            Color.gray
+                                        case .success(let image):
+                                            image
+                                                .resizable()
+                                                .scaledToFill()
+                                        case .failure:
+                                            Color.red
+                                        @unknown default:
+                                            Color.gray
+                                        }
+                                    }
+                                    .frame(width: 150, height: 100)
+                                    .cornerRadius(12)
+                                    .clipped()
+
+                                    Text(topic.title)
+                                        .foregroundColor(.primary)
+                                        .fontWeight(.semibold)
+                                        .lineLimit(1)
+                                        .frame(maxWidth: 150)
+                                        .multilineTextAlignment(.center)
+                                }
+                            }
+                            .frame(width: 150)
+                        }
+                    }
+                    .padding()
+                }
+                .onAppear {
+                    Task {
+                        await topicsState.fetchTopics()
+                    }
+                }
+
+                // Bouton de chargement des images d'accueil
+                Button(action: {
+                    Task {
+                        await feedState.fetchHomeFeed()
+                    }
+                }) {
+                    Text("Load Data")
+                        .padding()
+                        .background(feedState.homeFeed == nil ? Color.blue : Color.gray)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                .disabled(feedState.homeFeed != nil)
+
+                // Section des images d'accueil
+                ScrollView {
+                    if feedState.homeFeed == nil {
+                        // Placeholder pendant le chargement
+                        LazyVGrid(columns: columns, spacing: 8) {
+                            ForEach(placeholderItems, id: \.self) { _ in
+                                Color.gray
+                                    .frame(height: 150)
+                                    .cornerRadius(12)
+                            }
+                        }
+                        .padding(.horizontal)
+                        .redacted(reason: .placeholder)
+                    } else if let homeFeed = feedState.homeFeed {
+                        // Affichage des images
+                        LazyVGrid(columns: columns, spacing: 8) {
+                            ForEach(homeFeed) { photo in
+                                NavigationLink(destination: ImageDetailView(photo: photo)) {
+                                    AsyncImage(url: URL(string: photo.urls.small)) { phase in
+                                        switch phase {
+                                        case .empty:
+                                            ProgressView()
+                                        case .success(let image):
+                                            image
+                                                .resizable() 
+                                                .frame(height: 150)
+                                                .cornerRadius(12)
+                                                .clipped()
+                                        case .failure:
+                                            Color.red
+                                        @unknown default:
+                                            Color.gray
+                                        }
+                                    }
+                                    .frame(height: 150)
+                                    .cornerRadius(12)
+                                    .clipped()
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+                }
+            }
+            .navigationTitle("Feed")
+            .padding()
         }
-        .padding()
     }
 }
+
 
 #Preview {
     ContentView()
