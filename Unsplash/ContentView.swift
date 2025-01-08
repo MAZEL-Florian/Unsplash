@@ -21,7 +21,6 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                // Section des topics
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 16) {
                         ForEach(topicsState.topics) { topic in
@@ -64,7 +63,6 @@ struct ContentView: View {
                     }
                 }
 
-                // Bouton de chargement des images d'accueil
                 Button(action: {
                     Task {
                         await feedState.fetchHomeFeed()
@@ -78,10 +76,8 @@ struct ContentView: View {
                 }
                 .disabled(feedState.homeFeed != nil)
 
-                // Section des images d'accueil
                 ScrollView {
                     if feedState.homeFeed == nil {
-                        // Placeholder pendant le chargement
                         LazyVGrid(columns: columns, spacing: 8) {
                             ForEach(placeholderItems, id: \.self) { _ in
                                 Color.gray
@@ -92,7 +88,6 @@ struct ContentView: View {
                         .padding(.horizontal)
                         .redacted(reason: .placeholder)
                     } else if let homeFeed = feedState.homeFeed {
-                        // Affichage des images
                         LazyVGrid(columns: columns, spacing: 8) {
                             ForEach(homeFeed) { photo in
                                 NavigationLink(destination: ImageDetailView(photo: photo)) {
